@@ -1,6 +1,15 @@
 
 import re
 
+phone_regex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))? # 3桁の市外局番(()がついても良い)
+    (\s|-|\.)?         # 区切り
+    \d{3}              # 3桁の市内局番
+    (\s|-|\.)          # 区切り
+    \d{4}              # 4桁の番号
+    (\s*(ext|x|ext.)\s*\d{2,5})? # 2-5桁の内線番号
+    )''', re.VERBOSE)
+
 def is_phone_number(text):
     if len(text) != 12:
         return False
@@ -20,8 +29,8 @@ def is_phone_number(text):
     return True
 
 def is_phone_number_with_regex(text):
-    phone_num_regex = re.compile(r'([0-9]{3}-[0-9]{3}-[0-9]{4})')
-    no = phone_num_regex.search(text) # => Match Object
+    # phone_num_regex = re.compile(r'([0-9]{3}-[0-9]{3}-[0-9]{4})')
+    no = phone_regex.search(text) # => Match Object
 
     return no != None
 
@@ -33,9 +42,8 @@ def find_phone_number(text):
     return False
 
 def findall_phone_number_with_regex(text):
-    phone_num_regex = re.compile(r'([\d]{3})-([\d]{3})-([\d]{4})')
 
-    return phone_num_regex.findall(text)
+    return phone_regex.findall(text)
 
 
 # Test Code
