@@ -4,8 +4,10 @@
 import openpyxl, pprint
 
 print('workbook opening...')
-wb = openpyxl.loadworkbook('/tmp/censuspopdata.xlsx')
-sheet = wb.get_sheet_by_name('Population by Census Tract')
+wb = openpyxl.load_workbook('/tmp/censuspopdata.xlsx')
+
+# readCensusExcel.py:8: DeprecationWarning: Call to deprecated function get_sheet_by_name (Use wb[sheetname]).
+sheet = wb['Population by Census Tract']
 county_data = {}
 
 print('read row data...')
