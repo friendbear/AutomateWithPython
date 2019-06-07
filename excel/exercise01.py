@@ -1,8 +1,5 @@
 import openpyxl
-import os
-
-os.chdir('/tmp')
-
+import setup
 wb = openpyxl.load_workbook('example.xlsx')
 
 for sheet_name in wb.get_sheet_names():

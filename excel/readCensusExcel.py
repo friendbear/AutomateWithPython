@@ -3,8 +3,10 @@
 
 import openpyxl, pprint
 
+import setup
+
 print('workbook opening...')
-wb = openpyxl.load_workbook('/tmp/censuspopdata.xlsx')
+wb = openpyxl.load_workbook('censuspopdata.xlsx')
 
 # readCensusExcel.py:8: DeprecationWarning: Call to deprecated function get_sheet_by_name (Use wb[sheetname]).
 sheet = wb['Population by Census Tract']
@@ -25,7 +27,7 @@ for row in range(2, sheet.max_row + 1):
 
 print('writhing...')
 
-result_file = open('/tmp/census2010.py', 'w')
+result_file = open('census2010.py', 'w')
 result_file.write('all_data = ' + pprint.pformat(county_data))
 result_file.close()
 
