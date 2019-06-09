@@ -10,4 +10,18 @@
 
 
 ### Git
-* [gitignore]<https://github.com/github/gitignore/blob/master/Python.gitignore>
+* [gitignore](https://github.com/github/gitignore/blob/master/Python.gitignore)
+
+### Python
+* pyenv
+* virtualenv
+* pip3
+* python 3.7.x
+
+### OS
+* Ubuntu Desktop 19.04
+
+
+### IDE
+* PyCharm Community Edition
+
